@@ -1,0 +1,23 @@
+﻿@model Student
+@{  
+    ViewBag.Title = "Student details";
+}
+<h2>Student Details</h2>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Id: @Model.Id</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">First Name: @Model.FirstName</p>
+        <p class="card-text">Last Name: @Model.LastName</p>
+        <p class="card-text">Phone Number: @Model.PhoneNumber</p>
+        <p class="card-text">Email: @Model.Email</p>
+        <p class="card-text">Birth Date: @Model.BirthDate.ToShortDateString()</p>
+        <p class="card-text">Student Reg Number: @Model.StudentRegNumber</p>
+    </div>
+    <div class="card-footer">
+        <a asp-action="update" asp-controller="students" asp-route-id="@Model.Id" class="btn btn-warning">Update</a>
+        <a asp-action="delete" asp-controller="students" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+    </div>
+</div>

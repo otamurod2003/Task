@@ -1,0 +1,53 @@
+﻿@model IQueryable<Student>
+@{
+    ViewBag.Title = "All students";
+}
+
+<a asp-action="create" asp-controller="students" class="btn btn-primary">Create</a>
+<h2 class="text-center">Students list</h2>
+
+@if (Model.Any())
+{
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Birth Date</th>
+                <th>Student Reg Number</th>
+                <th>Navigation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Id</td>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.PhoneNumber</td>
+                    <td>@student.Email</td>
+                    <td>@student.BirthDate.ToShortDateString()</td>
+                    <td>@student.StudentRegNumber</td>
+                    <td>
+                        <a asp-action="update" asp-controller="students" asp-route-id="@student.Id" class="btn btn-warning m-1">Update</a>
+                        <a asp-action="delete" asp-controller="students" asp-route-id="@student.Id" class="btn btn-danger m-1">Delete</a>
+                        <a asp-action="details" asp-controller="students" asp-route-id="@student.Id" class="btn btn-primary m-1">View</a>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+}
+else
+            {
+                <div class="text-center text-danger">
+                    <h2>No students. Please create new student...</h2>
+                </div>
+            }

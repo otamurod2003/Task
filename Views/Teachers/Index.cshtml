@@ -1,0 +1,42 @@
+﻿@model IQueryable<Teacher>
+@{
+    ViewBag.Title = "All teachers";
+}
+<a asp-action="create" asp-controller="teachers" class="btn btn-primary">Add new teacher</a>
+<h2 class="text-center">All teachers</h2>
+
+<div class="row">
+    @if (Model.Any())
+    {
+        foreach (var teacher in Model)
+        {
+            <div class="col-md-4">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>@teacher.FirstName @teacher.LastName</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Birth date: @teacher.BirthDate</li>
+                            <li>Phone number: @teacher.PhoneNumber</li>
+                            <li>Email: @teacher.Email</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-action="delete" asp-controller="teachers" asp-route-Id="@teacher.Id" class="btn btn-danger">Delete</a>
+                        <a asp-action="update" asp-controller="teachers" asp-route-Id="@teacher.Id" class="btn btn-warning">Update</a>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    }
+    else { 
+        <div>
+            <h3 class="text-center text-danger">No data displays yet...</h3>
+        </div>
+    }
+</div>
+

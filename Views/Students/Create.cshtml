@@ -1,0 +1,41 @@
+﻿@model Student
+@{
+    ViewBag.Title = "Create new student";
+}
+<h2 class="text-center">Create Student</h2>
+
+<form asp-action="Create" asp-controller="students" method="post">
+    <div class="form-group m-1">
+        <label for="firstName" asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" class="form-control" id="firstName" placeholder="Enter first name">
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group m-1">
+        <label for="lastName" asp-for="FirstName">Last Name</label>
+        <input class="form-control" id="lastName" asp-for="LastName" placeholder="Enter last name">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group m-1">
+        <label for="phoneNumber" asp-for="PhoneNumber">Phone Number</label>
+        <input class="form-control" id="phoneNumber"  asp-for="PhoneNumber" placeholder="Enter phone number">
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group m-1">
+        <label for="email" asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" id="email" placeholder="Enter email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group m-1">
+        <label for="birthDate" asp-for="Email">Birth Date</label>
+        <input class="form-control" id="birthDate" asp-for="BirthDate">
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <div class="form-group m-1">
+        <label for="studentRegNumber" asp-for="Email">Student Reg Number</label>
+        <input class="form-control" id="studentRegNumber" asp-for="StudentRegNumber" placeholder="Enter student reg number">
+        <span asp-validation-for="StudentRegNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="index" asp-controller="home" class="btn btn-primary">Cancel</a>
+</form>
+

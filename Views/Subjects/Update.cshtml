@@ -1,0 +1,15 @@
+﻿@model Subject
+@{ 
+    ViewBag.Title = "Create new subject";
+}
+<h4 class="text-center">Create new subject</h4>
+
+<form asp-action="update" asp-controller="subjects" method="post">
+    <div class="form-group m-1">
+        <label for="firstName" asp-for="Name">First Name</label>
+        <input asp-for="Name" class="form-control" id="firstName" placeholder="Enter first name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="index" asp-controller="home" class="btn btn-primary">Cancel</a>
+</form>
